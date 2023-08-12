@@ -1,47 +1,23 @@
-import React from 'react';
-import logo from '../assets/logo.svg';
+import React, { useState } from 'react';
 import '../styles/ui.css';
+import { PAGES } from '../utils/contants';
+import MyPalettes from './pages/MyPalettes';
+import Login from './pages/Login';
+import PaletteDetails from './pages/PaletteDetails';
 
 function App() {
-  const textbox = React.useRef<HTMLInputElement>(undefined);
-
-  const countRef = React.useCallback((element: HTMLInputElement) => {
-    if (element) element.value = '5';
-    textbox.current = element;
-  }, []);
-
-  const onCreate = () => {
-    const count = parseInt(textbox.current.value, 10);
-    parent.postMessage({ pluginMessage: { type: 'create-rectangles', count } }, '*');
-  };
-
-  const onCancel = () => {
-    parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*');
-  };
-
-  React.useEffect(() => {
-    // This is how we read messages sent from the plugin controller
-    window.onmessage = (event) => {
-      const { type, message } = event.data.pluginMessage;
-      if (type === 'create-rectangles') {
-        console.log(`Figma Says: ${message}`);
-      }
-    };
-  }, []);
-
-  return (
-    <div>
-      <img src={logo} />
-      <h2>Rectangle Creator</h2>
-      <p>
-        Count: <input ref={countRef} />
-      </p>
-      <button id="create" onClick={onCreate}>
-        Create
-      </button>
-      <button onClick={onCancel}>Cancel</button>
-    </div>
-  );
+  const [activePage, setActivePage] = useState(PAGES.LOGIN_PAGE);
+  switch (activePage) {
+    case PAGES.LOGIN_PAGE:
+      return <Login setActivePage={setActivePage}></Login>;
+    case PAGES.MY_PALETTES:
+      return <MyPalettes setActivePage={setActivePage}></MyPalettes>;
+    case PAGES.PALETTE_DETAILS:
+      return <PaletteDetails setActivePage={setActivePage}></PaletteDetails>;
+    default:
+      return <div>Something went worng. No page matches.</div>;
+  }
+  return <div>Something went worng. No page matches.</div>;
 }
 
 export default App;
