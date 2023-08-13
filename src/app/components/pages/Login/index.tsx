@@ -6,9 +6,15 @@ export interface LoginProps {
 const Login = function (props: LoginProps) {
   const {} = props;
   return (
-    <div>
-      Login page
-      <div></div>
+    <div className="login">
+      <form>
+        <h3>Login page</h3>
+        <input placeholder="Huehive login token" />
+        <button type="submit">Submit </button>
+        <div>
+          Copy from <a href="https://huehive.co/users/figma_token">huehive profile page</a>.
+        </div>
+      </form>
     </div>
   );
 };
