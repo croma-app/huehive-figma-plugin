@@ -17,7 +17,6 @@ function App() {
     default:
       return <div>Something went worng. No page matches.</div>;
   }
-  return <div>Something went worng. No page matches.</div>;
 }
 
 export default App;
