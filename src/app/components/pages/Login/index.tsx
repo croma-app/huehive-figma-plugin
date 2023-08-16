@@ -7,7 +7,13 @@ const Login = function (props: LoginProps) {
   const {} = props;
   return (
     <div className="login">
-      <form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          console.log({ postMessage: parent.postMessage });
+          parent.postMessage({ pluginMessage: { type: 'create-login', token: 'test' } }, '*');
+        }}
+      >
         <h3>Login page</h3>
         <input placeholder="Huehive login token" />
         <button type="submit">Submit </button>

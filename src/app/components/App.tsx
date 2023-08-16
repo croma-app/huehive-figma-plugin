@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/ui.css';
 import { PAGES } from '../utils/contants';
 import MyPalettes from './pages/MyPalettes';
@@ -7,6 +7,20 @@ import PaletteDetails from './pages/PaletteDetails';
 
 function App() {
   const [activePage, setActivePage] = useState(PAGES.LOGIN_PAGE);
+  useEffect(() => {
+    console.log('check it ');
+    parent.postMessage({ pluginMessage: { type: 'get-login' } }, '*');
+  }, []);
+  useEffect(() => {
+    // This is how we read messages sent from the plugin controller
+    window.onmessage = (event) => {
+      const { type, message } = event.data.pluginMessage;
+      console.log({ type, message });
+      if (type === 'login-token') {
+        console.log(`Figma Says: ${message}`);
+      }
+    };
+  }, []);
   switch (activePage) {
     case PAGES.LOGIN_PAGE:
       return <Login setActivePage={setActivePage}></Login>;
