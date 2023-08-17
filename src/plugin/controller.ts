@@ -2,18 +2,18 @@ figma.showUI(__html__);
 
 const LOGIN_TOKEN_KEY = 'LOGIN_TOKEN_KEY'
 figma.ui.onmessage = async (msg) => {
-  if (msg.type === 'create-login') {
-    figma?.clientStorage.setAsync(LOGIN_TOKEN_KEY, msg.token);
+  if (msg.type === 'store-user-info') {
+    figma?.clientStorage.setAsync(LOGIN_TOKEN_KEY, msg.userInfo);
     figma.ui.postMessage({
-      type: 'login-token',
-      message: msg.token,
+      type: 'get-user-info',
+      message: msg.userInfo,
     });
   }
-  if (msg.type === 'get-login') {
-    const token = await figma?.clientStorage.getAsync(LOGIN_TOKEN_KEY);
+  if (msg.type === 'load-user-info') {
+    const userInfo = await figma?.clientStorage.getAsync(LOGIN_TOKEN_KEY);
     figma.ui.postMessage({
-      type: 'get-login',
-      message: token,
+      type: 'get-user-info',
+      message: userInfo,
     });
   }
   // figma.closePlugin();

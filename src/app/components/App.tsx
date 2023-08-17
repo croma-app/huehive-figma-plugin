@@ -4,26 +4,37 @@ import { PAGES } from '../utils/contants';
 import MyPalettes from './pages/MyPalettes';
 import Login from './pages/Login';
 import PaletteDetails from './pages/PaletteDetails';
+import { UserInfo } from '../types';
 
 function App() {
   const [activePage, setActivePage] = useState(PAGES.LOGIN_PAGE);
+  const [userInfo, setUserInfo] = useState<UserInfo>();
+
+  // trigger load info from local storage
   useEffect(() => {
-    console.log('check it ');
-    parent.postMessage({ pluginMessage: { type: 'get-login' } }, '*');
+    parent.postMessage({ pluginMessage: { type: 'load-user-info' } }, '*');
   }, []);
+
   useEffect(() => {
     // This is how we read messages sent from the plugin controller
     window.onmessage = (event) => {
       const { type, message } = event.data.pluginMessage;
       console.log({ type, message });
-      if (type === 'login-token') {
-        console.log(`Figma Says: ${message}`);
+      if (type === 'get-user-info') {
+        setUserInfo(JSON.parse(message));
       }
     };
   }, []);
+
+  console.log('userInfo', userInfo, { userInfo });
+
   switch (activePage) {
     case PAGES.LOGIN_PAGE:
-      return <Login setActivePage={setActivePage}></Login>;
+      return userInfo ? (
+        <MyPalettes setActivePage={setActivePage}></MyPalettes>
+      ) : (
+        <Login setActivePage={setActivePage}></Login>
+      );
     case PAGES.MY_PALETTES:
       return <MyPalettes setActivePage={setActivePage}></MyPalettes>;
     case PAGES.PALETTE_DETAILS:
