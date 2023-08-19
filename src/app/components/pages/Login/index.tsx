@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PAGES } from '../../../utils/contants';
+import { API_URL, PAGES } from '../../../utils/contants';
 export interface LoginProps {
   setActivePage: React.Dispatch<React.SetStateAction<PAGES>>;
 }
@@ -11,9 +11,7 @@ const Login = function (props: LoginProps) {
       <form
         onSubmit={async (e) => {
           e.preventDefault();
-          const res = await fetch('https://huehive.co/users/temp_token_login?token=' + token, {
-            mode: 'no-cors',
-          });
+          const res = await fetch(API_URL + 'users/temp_token_login?token=' + token, { mode: 'no-cors' });
           const mackRes = {
             user: {
               id: 10,
