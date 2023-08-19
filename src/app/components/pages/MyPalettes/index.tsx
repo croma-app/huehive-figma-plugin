@@ -39,6 +39,7 @@ const MyPalettes = function (props: MyPalettesProps) {
         );
       })}
       <button>Generate </button>
+      <button onClick={()=>{parent.postMessage({ pluginMessage: { type: 'logout' } }, '*');}}>Logout  </button>
     </div>
   );
 };

@@ -318,6 +318,9 @@ function App() {
       if (type === 'get-user-info') {
         setUserInfo(JSON.parse(message));
       }
+      if (type === 'logout') {
+        setUserInfo(undefined);
+      }
     };
   }, []);
 
