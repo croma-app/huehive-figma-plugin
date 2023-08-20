@@ -336,14 +336,14 @@ function App() {
   switch (activePage) {
     case PAGES.LOGIN_PAGE:
       return userInfo ? (
-        <MyPalettes palettes={palettes} setActivePage={setActivePage}></MyPalettes>
+        <MyPalettes userInfo={userInfo} palettes={palettes} setActivePage={setActivePage}></MyPalettes>
       ) : (
         <Login setActivePage={setActivePage}></Login>
       );
     case PAGES.MY_PALETTES:
-      return <MyPalettes palettes={palettes} setActivePage={setActivePage}></MyPalettes>;
+      return <MyPalettes userInfo={userInfo} palettes={palettes} setActivePage={setActivePage}></MyPalettes>;
     case PAGES.PALETTE_DETAILS:
-      return <PaletteDetails setActivePage={setActivePage}></PaletteDetails>;
+      return <PaletteDetails userInfo={userInfo} setActivePage={setActivePage}></PaletteDetails>;
     default:
       return <div>Something went worng. No page matches.</div>;
   }

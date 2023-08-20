@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import { PAGES } from '../../../utils/contants';
-import { Palette } from '../../../types';
+import { Palette, UserInfo } from '../../../types';
+import Header from '../../common/Header';
 
 export interface MyPalettesProps {
   setActivePage: React.Dispatch<React.SetStateAction<PAGES>>;
   palettes: Palette[];
+  userInfo: UserInfo;
 }
 
 const MyPalettes = function (props: MyPalettesProps) {
-  const { palettes } = props;
+  const { palettes, userInfo } = props;
   return (
     <div>
+      <Header userInfo={userInfo}></Header>
       My Palettes
       {palettes.map((palette) => {
         return (
