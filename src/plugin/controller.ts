@@ -16,6 +16,13 @@ figma.ui.onmessage = async (msg) => {
       message: userInfo,
     });
   }
+  if (msg.type === 'logout') {
+    await figma.clientStorage.deleteAsync(LOGIN_TOKEN_KEY);
+    figma.ui.postMessage({
+      type: 'logout',
+      message: '',
+    });
+  }
   // figma.closePlugin();
 };
 
