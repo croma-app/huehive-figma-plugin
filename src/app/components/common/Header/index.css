@@ -12,6 +12,7 @@
 .header .header-name {
   display: flex;
   flex-direction: row;
+  gap: 0.5rem;
 }
 
 .header .kebab > .avatar {
