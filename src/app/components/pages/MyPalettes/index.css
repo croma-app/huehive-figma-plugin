@@ -1,24 +1,30 @@
-.palettes-container {
+.my-palettes h3 {
+  margin: 0rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.my-palettes .palettes-container {
   display: flex;
   flex-direction: column;
   row-gap: 2rem;
   padding: 1rem;
 }
 
-.palettes-container .palette {
+.my-palettes .palette {
   display: flex;
   flex-direction: column;
   box-shadow: 0rem 0rem 0.4rem rgba(0, 0, 0, 0.25);
 }
 
-.palettes-container .palette__colors {
+.my-palettes .palette__colors {
   display: flex;
   flex-direction: row;
   flex-grow: 1;
   height: 10rem;
 }
 
-.palettes-container .palette__color {
+.my-palettes .palette__color {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,12 +33,12 @@
   text-align: center;
 }
 
-.palettes-container .palette__color > h5,
+.my-palettes .palette__color > h5,
 p {
   margin: 0rem;
 }
 
-.palettes-container .palette__details {
+.my-palettes .palette__details {
   display: flex;
   flex-direction: row;
   padding: 0.5rem 1rem;

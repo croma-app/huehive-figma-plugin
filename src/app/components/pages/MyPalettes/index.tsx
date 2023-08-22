@@ -14,9 +14,9 @@ export interface MyPalettesProps {
 const MyPalettes = function (props: MyPalettesProps) {
   const { palettes, userInfo } = props;
   return (
-    <div>
+    <div className="my-palettes">
       <Header userInfo={userInfo}></Header>
-      My Palettes
+      <h3> My Palettes </h3>
       <div className="palettes-container">
         {palettes.map((palette) => {
           return (
