@@ -23,7 +23,8 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  flex-grow: 1;
+  flex: 1;
+  text-align: center;
 }
 
 .palettes-container .palette__color > h5,

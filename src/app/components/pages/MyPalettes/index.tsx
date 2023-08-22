@@ -3,6 +3,7 @@ import { PAGES } from '../../../utils/contants';
 import { Palette, UserInfo } from '../../../types';
 import Header from '../../common/Header';
 import './index.css';
+import { getTextColor } from '../../../utils/helpers';
 
 export interface MyPalettesProps {
   setActivePage: React.Dispatch<React.SetStateAction<PAGES>>;
@@ -23,9 +24,12 @@ const MyPalettes = function (props: MyPalettesProps) {
               <div className="palette__colors d-md-flex">
                 {palette.colors.map((color) => {
                   return (
-                    <div style={{ backgroundColor: color.hex }} className="palette__color">
-                      <h5 className="color-hex-text text-white">{color.hex}</h5>
-                      <p className="color-name-text text-white"> {color.name}</p>
+                    <div
+                      style={{ backgroundColor: color.hex, color: getTextColor(color.hex) }}
+                      className="palette__color"
+                    >
+                      <h5 className="color-hex-text">{color.hex}</h5>
+                      <p className="color-name-text"> {color.name}</p>
                     </div>
                   );
                 })}

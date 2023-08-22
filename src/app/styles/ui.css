@@ -27,3 +27,11 @@ input {
   width: 200px;
   height: 30px;
 }
+
+.text-white {
+  color: white;
+}
+
+.text-black {
+  color: black;
+}
