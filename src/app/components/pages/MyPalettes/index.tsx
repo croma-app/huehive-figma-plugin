@@ -35,10 +35,7 @@ const MyPalettes = function (props: MyPalettesProps) {
                 })}
               </div>
               <div className="palette__details ">
-                <div>
-                  {' '}
-                  <a href="/color_palettes/357">{palette.name}</a>
-                </div>
+                <div> {palette.name}</div>
               </div>
             </div>
           );

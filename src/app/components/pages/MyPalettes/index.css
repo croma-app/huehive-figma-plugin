@@ -15,6 +15,7 @@
   display: flex;
   flex-direction: column;
   box-shadow: 0rem 0rem 0.4rem rgba(0, 0, 0, 0.25);
+  cursor: pointer;
 }
 
 .my-palettes .palette__colors {
@@ -22,6 +23,7 @@
   flex-direction: row;
   flex-grow: 1;
   height: 10rem;
+  overflow: auto;
 }
 
 .my-palettes .palette__color {
