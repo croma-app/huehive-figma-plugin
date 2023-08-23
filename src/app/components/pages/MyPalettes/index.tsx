@@ -40,8 +40,11 @@ const MyPalettes = function (props: MyPalettesProps) {
             </div>
           );
         })}
+        <a href="https://huehive.co/" target="_blank" className="generate-button">
+          {' '}
+          Generate new palette{' '}
+        </a>
       </div>
-      <button>Generate </button>
       <button
         onClick={() => {
           parent.postMessage({ pluginMessage: { type: 'logout' } }, '*');

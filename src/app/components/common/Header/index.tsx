@@ -10,7 +10,12 @@ const Header = function (props: HeaderProps) {
   const { userInfo } = props;
   return (
     <header className="header">
-      <div className="header-name">
+      <div
+        className="header-name"
+        onClick={() => {
+          window.open('https://huehive.co/', '_blank');
+        }}
+      >
         <div className="logo">
           <img src="https://huehive.co/assets/logos/croma-fdaef4e29c5ef06a91d4f4272650e9b5077985204aaa20dea78173eeb360ef80.svg" />
         </div>

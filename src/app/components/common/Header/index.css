@@ -13,10 +13,12 @@
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
+  cursor: pointer;
 }
 
 .header .kebab > .avatar {
   border-radius: 100%;
+  cursor: pointer;
 }
 
 .header .kebab > .dropdown {
