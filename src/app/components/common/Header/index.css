@@ -21,6 +21,30 @@
   cursor: pointer;
 }
 
-.header .kebab > .dropdown {
-  display: none;
+.header .kebab {
+  position: relative;
+}
+
+.header .kebab .dropdown {
+  position: absolute;
+  box-shadow: 0rem 0rem 0.4rem rgba(0, 0, 0, 0.5);
+  background-color: #fff;
+  padding: 1rem;
+  right: 1rem;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+}
+
+.header .kebab .dropdown li {
+  padding: 0.5rem;
+  text-align: center;
+  list-style-type: none;
+  text-decoration: none;
+  color: black;
+  border-radius: 0.5rem;
+  min-width: 7rem;
+}
+
+.header .kebab .dropdown li:hover {
+  background-color: #ccc;
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { UserInfo } from '../../../types';
 import './index.css';
 
@@ -8,6 +8,8 @@ interface HeaderProps {
 
 const Header = function (props: HeaderProps) {
   const { userInfo } = props;
+  const [toggleDropdown, setToggleDropdown] = useState(false);
+
   return (
     <header className="header">
       <div
@@ -22,21 +24,25 @@ const Header = function (props: HeaderProps) {
         <h2>Huehive</h2>
       </div>
       <div className="kebab">
-        <img className="avatar" src={userInfo.user.avatar_url} height={60} />
-        <ul className="dropdown">
-          <li>
-            <a href="http://www.g.com">Art</a>
-          </li>
-          <li>
-            <a href="http://www.g.com">Coding</a>
-          </li>
-          <li>
-            <a href="http://www.g.com">Design</a>
-          </li>
-          <li>
-            <a href="http://www.g.com">Web Development</a>
-          </li>
-        </ul>
+        <img
+          onClick={() => {
+            setToggleDropdown(!toggleDropdown);
+          }}
+          className="avatar"
+          src={userInfo.user.avatar_url}
+          height={60}
+        />
+        {toggleDropdown && (
+          <ul className="dropdown">
+            <li
+              onClick={() => {
+                parent.postMessage({ pluginMessage: { type: 'logout' } }, '*');
+              }}
+            >
+              Logout
+            </li>
+          </ul>
+        )}
       </div>
     </header>
   );

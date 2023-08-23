@@ -45,13 +45,6 @@ const MyPalettes = function (props: MyPalettesProps) {
           Generate new palette{' '}
         </a>
       </div>
-      <button
-        onClick={() => {
-          parent.postMessage({ pluginMessage: { type: 'logout' } }, '*');
-        }}
-      >
-        Logout{' '}
-      </button>
     </div>
   );
 };
