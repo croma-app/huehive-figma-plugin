@@ -47,5 +47,5 @@
 }
 
 .header .kebab .dropdown li:hover {
-  background-color: #ccc;
+  color: blue;
 }
