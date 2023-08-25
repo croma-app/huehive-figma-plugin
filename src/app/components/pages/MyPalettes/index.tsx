@@ -9,10 +9,11 @@ export interface MyPalettesProps {
   setActivePage: React.Dispatch<React.SetStateAction<PAGES>>;
   palettes: Palette[];
   userInfo: UserInfo;
+  setSelectedPaletteId: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const MyPalettes = function (props: MyPalettesProps) {
-  const { palettes, userInfo } = props;
+  const { palettes, userInfo, setSelectedPaletteId, setActivePage } = props;
   return (
     <div className="my-palettes">
       <Header userInfo={userInfo}></Header>
@@ -20,7 +21,14 @@ const MyPalettes = function (props: MyPalettesProps) {
       <div className="palettes-container">
         {palettes.map((palette) => {
           return (
-            <div key={palette.id} className="palette">
+            <div
+              key={palette.id}
+              className="palette"
+              onClick={() => {
+                setSelectedPaletteId(palette.id);
+                setActivePage(PAGES.PALETTE_DETAILS);
+              }}
+            >
               <div className="palette__colors d-md-flex">
                 {palette.colors.map((color) => {
                   return (

@@ -303,7 +303,7 @@ function App() {
   const [activePage, setActivePage] = useState(PAGES.LOGIN_PAGE);
   const [userInfo, setUserInfo] = useState<UserInfo>();
   const [palettes, setPalettes] = useState<Palette[]>([]);
-  console.log(mockPalettes);
+  const [selectedPaletteId, setSelectedPaletteId] = useState<undefined | number>();
 
   // trigger load info from local storage
   useEffect(() => {
@@ -328,7 +328,6 @@ function App() {
     (async () => {
       if (userInfo) {
         const res = await fetch(API_URL + 'color_palettes.json', { mode: 'no-cors' });
-        console.log({ res });
         setPalettes(mockPalettes);
       }
     })();
@@ -339,14 +338,32 @@ function App() {
   switch (activePage) {
     case PAGES.LOGIN_PAGE:
       return userInfo ? (
-        <MyPalettes userInfo={userInfo} palettes={palettes} setActivePage={setActivePage}></MyPalettes>
+        <MyPalettes
+          setSelectedPaletteId={setSelectedPaletteId}
+          userInfo={userInfo}
+          palettes={palettes}
+          setActivePage={setActivePage}
+        />
       ) : (
         <Login setActivePage={setActivePage}></Login>
       );
     case PAGES.MY_PALETTES:
-      return <MyPalettes userInfo={userInfo} palettes={palettes} setActivePage={setActivePage}></MyPalettes>;
+      return (
+        <MyPalettes
+          setSelectedPaletteId={setSelectedPaletteId}
+          userInfo={userInfo}
+          palettes={palettes}
+          setActivePage={setActivePage}
+        />
+      );
     case PAGES.PALETTE_DETAILS:
-      return <PaletteDetails userInfo={userInfo} setActivePage={setActivePage}></PaletteDetails>;
+      return (
+        <PaletteDetails
+          palette={palettes.find((palette) => palette.id === selectedPaletteId) as Palette}
+          userInfo={userInfo}
+          setActivePage={setActivePage}
+        />
+      );
     default:
       return <div>Something went worng. No page matches.</div>;
   }
