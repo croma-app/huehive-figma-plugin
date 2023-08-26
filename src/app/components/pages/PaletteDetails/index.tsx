@@ -4,6 +4,7 @@ import Header from '../../common/Header';
 import { Palette, UserInfo } from '../../../types';
 import { getTextColor } from '../../../utils/helpers';
 import './index.css';
+import back from '../../../assets/back.svg';
 
 export interface PaletteDetailsProps {
   setActivePage: React.Dispatch<React.SetStateAction<PAGES>>;
@@ -18,13 +19,16 @@ const PaletteDetails = function (props: PaletteDetailsProps) {
     <div>
       <Header userInfo={userInfo}></Header>
       <div className="palette-details">
-        <h3> Palette Details </h3>
-        <div
-          onClick={() => {
-            setActivePage(PAGES.MY_PALETTES);
-          }}
-        >
-          Back
+        <div className="title-bar">
+          <h3> Palette Details </h3>
+          <button
+            className="back"
+            onClick={() => {
+              setActivePage(PAGES.MY_PALETTES);
+            }}
+          >
+            <img src={back} height={20} width={20} /> Back
+          </button>
         </div>
         <div className="palette__colors">
           {palette.colors.map((color, index) => {

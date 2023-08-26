@@ -23,9 +23,8 @@ const MyPalettes = function (props: MyPalettesProps) {
       <div className="title-bar">
         <h3> My Palettes </h3>
         <button className="reload" onClick={loadPalettes}>
-          {' '}
-          Reload
           <img src={ReloadSvg} height={20} width={20} />
+          Reload
         </button>
       </div>
       <div className="palettes-container">
