@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import '../styles/ui.css';
 import { API_URL, PAGES } from '../utils/contants';
 import MyPalettes from './pages/MyPalettes';
@@ -304,6 +304,7 @@ function App() {
   const [userInfo, setUserInfo] = useState<UserInfo>();
   const [palettes, setPalettes] = useState<Palette[]>([]);
   const [selectedPaletteId, setSelectedPaletteId] = useState<undefined | number>();
+  const [loadingPalettes, setLoadingPalettes] = useState(false);
 
   // trigger load info from local storage
   useEffect(() => {
@@ -314,7 +315,6 @@ function App() {
     // This is how we read messages sent from the plugin controller
     window.onmessage = (event) => {
       const { type, message } = event.data.pluginMessage;
-      console.log({ type, message });
       if (type === 'get-user-info') {
         setUserInfo(JSON.parse(message));
       }
@@ -324,16 +324,23 @@ function App() {
     };
   }, []);
 
+  const loadPalettes = useCallback(async () => {
+    try {
+      setLoadingPalettes(true);
+      const res = await fetch(API_URL + 'color_palettes.json');
+      const palettes = await res.json();
+      setPalettes(palettes as unknown as Palette[]);
+    } catch (error) {}
+    setLoadingPalettes(false);
+  }, []);
+
   useEffect(() => {
     (async () => {
       if (userInfo) {
-        const res = await fetch(API_URL + 'color_palettes.json', { mode: 'no-cors' });
-        setPalettes(mockPalettes);
+        loadPalettes();
       }
     })();
   }, [userInfo]);
-
-  console.log('userInfo', userInfo, { userInfo });
 
   switch (activePage) {
     case PAGES.LOGIN_PAGE:
@@ -343,6 +350,8 @@ function App() {
           userInfo={userInfo}
           palettes={palettes}
           setActivePage={setActivePage}
+          loadPalettes={loadPalettes}
+          loadingPalettes={loadingPalettes}
         />
       ) : (
         <Login setActivePage={setActivePage}></Login>
@@ -354,6 +363,8 @@ function App() {
           userInfo={userInfo}
           palettes={palettes}
           setActivePage={setActivePage}
+          loadPalettes={loadPalettes}
+          loadingPalettes={loadingPalettes}
         />
       );
     case PAGES.PALETTE_DETAILS:
