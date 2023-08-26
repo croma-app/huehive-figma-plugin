@@ -1,0 +1,23 @@
+.palette-details {
+  padding: 0.5rem;
+}
+.palette-details h3 {
+  margin: 0rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.palette-details .palette__colors {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.palette-details .palette__color {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
+  padding: 0.5rem;
+}

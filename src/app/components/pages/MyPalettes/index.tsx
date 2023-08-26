@@ -29,7 +29,7 @@ const MyPalettes = function (props: MyPalettesProps) {
                 setActivePage(PAGES.PALETTE_DETAILS);
               }}
             >
-              <div className="palette__colors d-md-flex">
+              <div className="palette__colors ">
                 {palette.colors.map((color) => {
                   return (
                     <div
