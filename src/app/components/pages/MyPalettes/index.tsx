@@ -4,6 +4,7 @@ import { Palette, UserInfo } from '../../../types';
 import Header from '../../common/Header';
 import './index.css';
 import { getTextColor } from '../../../utils/helpers';
+import ReloadSvg from '../../../assets/reload.svg';
 
 export interface MyPalettesProps {
   setActivePage: React.Dispatch<React.SetStateAction<PAGES>>;
@@ -18,6 +19,11 @@ const MyPalettes = function (props: MyPalettesProps) {
     <div className="my-palettes">
       <Header userInfo={userInfo}></Header>
       <h3> My Palettes </h3>
+      <button>
+        {' '}
+        Reload
+        <img src={ReloadSvg} height={'2rem'} width={'2rem'} />
+      </button>
       <div className="palettes-container">
         {palettes.map((palette) => {
           return (
