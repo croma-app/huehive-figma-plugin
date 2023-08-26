@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { PAGES } from '../../../utils/contants';
 import { Palette, UserInfo } from '../../../types';
 import Header from '../../common/Header';
