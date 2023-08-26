@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { PAGES } from '../../../utils/contants';
 import Header from '../../common/Header';
 import { Palette, UserInfo } from '../../../types';
@@ -13,6 +13,7 @@ export interface PaletteDetailsProps {
 
 const PaletteDetails = function (props: PaletteDetailsProps) {
   const { userInfo, palette, setActivePage } = props;
+  const [copiedIndex, setCopiedIndex] = useState(-1);
   return (
     <div>
       <Header userInfo={userInfo}></Header>
@@ -26,18 +27,20 @@ const PaletteDetails = function (props: PaletteDetailsProps) {
           Back
         </div>
         <div className="palette__colors">
-          {palette.colors.map((color) => {
+          {palette.colors.map((color, index) => {
             return (
-              <div style={{ backgroundColor: color.hex, color: getTextColor(color.hex) }} className="palette__color">
+              <div
+                key={index}
+                style={{ backgroundColor: color.hex, color: getTextColor(color.hex) }}
+                className="palette__color"
+              >
                 <h5 className="color-hex-text">{color.hex}</h5>
                 <p className="color-name-text"> {color.name}</p>
                 <span
-                  style={{ padding: '0.4rem', cursor: 'pointer' }}
                   onClick={() => {
                     const textArea = document.createElement('textarea');
                     textArea.value = color.hex;
                     document.body.appendChild(textArea);
-                    textArea.focus();
                     textArea.select();
                     try {
                       document.execCommand('copy');
@@ -45,9 +48,14 @@ const PaletteDetails = function (props: PaletteDetailsProps) {
                       console.error('Unable to copy to clipboard', err);
                     }
                     document.body.removeChild(textArea);
+                    setCopiedIndex(index);
+                    setTimeout(() => {
+                      setCopiedIndex(-1);
+                    }, 500);
                   }}
+                  className="copy"
                 >
-                  {' '}
+                  {copiedIndex === index && <span className="tooltip"> Copied </span>}
                   <svg
                     width="2.5rem"
                     height="2.5rem"

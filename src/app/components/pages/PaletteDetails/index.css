@@ -21,3 +21,20 @@
   height: 5rem;
   padding: 0.5rem;
 }
+
+.palette-details .copy {
+  position: relative;
+  padding: 0.4rem;
+  cursor: pointer;
+}
+
+.palette-details .copy .tooltip {
+  position: absolute;
+  padding: 0.4rem;
+  background-color: #fff;
+  color: black;
+  top: -1.6rem;
+  font-size: 1rem;
+  left: -0.5rem;
+  box-shadow: 0rem 0rem 0.4rem rgba(0, 0, 0, 0.5);
+}
