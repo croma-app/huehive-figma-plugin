@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { UserInfo } from '../../../types';
 import './index.css';
+import logo from '../../../assets/logo.svg';
 
 interface HeaderProps {
   userInfo: UserInfo;
@@ -19,7 +20,7 @@ const Header = function (props: HeaderProps) {
         }}
       >
         <div className="logo">
-          <img src="https://huehive.co/assets/logos/croma-fdaef4e29c5ef06a91d4f4272650e9b5077985204aaa20dea78173eeb360ef80.svg" />
+          <img src={logo} />
         </div>
         <h2>Huehive</h2>
       </div>
@@ -29,7 +30,7 @@ const Header = function (props: HeaderProps) {
             setToggleDropdown(!toggleDropdown);
           }}
           className="avatar"
-          src={userInfo.user.avatar_url}
+          src={userInfo.avatar_url}
           height={60}
         />
         {toggleDropdown && (
