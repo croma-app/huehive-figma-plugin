@@ -30,7 +30,7 @@ const Header = function (props: HeaderProps) {
             setToggleDropdown(!toggleDropdown);
           }}
           className="avatar"
-          src={userInfo.avatar_url}
+          src={userInfo.user.avatar_url}
           height={60}
         />
         {toggleDropdown && (

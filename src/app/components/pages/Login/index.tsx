@@ -11,9 +11,9 @@ const Login = function (props: LoginProps) {
       <form
         onSubmit={async (e) => {
           e.preventDefault();
-          const res = await fetch(API_URL + 'users/temp_token_login?token=' + token, { mode: 'no-cors' });
-         
-          parent.postMessage({ pluginMessage: { type: 'store-user-info', userInfo: JSON.stringify(res) } }, '*');
+          const res = await fetch(API_URL + 'users/temp_token_login?token=' + token);
+          const userInfo = await res.json();
+          parent.postMessage({ pluginMessage: { type: 'store-user-info', userInfo: JSON.stringify(userInfo) } }, '*');
         }}
       >
         <h3>Login page</h3>
@@ -27,7 +27,11 @@ const Login = function (props: LoginProps) {
         />
         <button type="submit">Submit </button>
         <div>
-          Copy from <a href="https://huehive.co/users/figma_token">huehive profile page</a>.
+          Copy from{' '}
+          <a href="https://huehive.co/users/figma_token" target="_blank">
+            huehive profile page
+          </a>
+          .
         </div>
       </form>
     </div>
