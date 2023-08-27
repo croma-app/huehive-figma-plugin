@@ -27,6 +27,7 @@ function App() {
       }
       if (type === 'logout') {
         setUserInfo(undefined);
+        setActivePage(PAGES.LOGIN_PAGE);
       }
     };
   }, []);
