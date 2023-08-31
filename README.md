@@ -25,3 +25,7 @@ This repo is using:
 ## Development
 * Clearing cache for the desktop app 
 ``` rm -rf "$HOME/Library/Application Support/Figma/"{Desktop,DesktopProfile} ```
+
+Publishing plugin 
+- https://help.figma.com/hc/en-us/articles/360042293394-Publish-plugins-to-the-Figma-Community#Publish_your_plugin
+- 
