@@ -1,6 +1,8 @@
-figma.showUI(__html__, {width: 400, height: 500});
+import { hexToRgb } from '../app/utils/helpers';
 
-const LOGIN_TOKEN_KEY = 'LOGIN_TOKEN_KEY'
+figma.showUI(__html__, { width: 400, height: 500 });
+
+const LOGIN_TOKEN_KEY = 'LOGIN_TOKEN_KEY';
 figma.ui.onmessage = async (msg) => {
   if (msg.type === 'store-user-info') {
     figma?.clientStorage.setAsync(LOGIN_TOKEN_KEY, msg.userInfo);
@@ -23,7 +25,20 @@ figma.ui.onmessage = async (msg) => {
       message: '',
     });
   }
+  if (msg.type === 'create-component') {
+    let initX = 50;
+    let squreSize = 100;
+    msg.colors.forEach((color) => {
+      const rect = figma.createRectangle();
+      // // Move
+      rect.x = initX;
+      rect.y = 50;
+      initX += squreSize;
+      // // Set size to 200 x 100
+      rect.resize(100, 100);
+      // // Set solid red fill
+      rect.fills = [{ type: 'SOLID', color: hexToRgb(color.hex) }];
+    });
+  }
   // figma.closePlugin();
 };
-
-

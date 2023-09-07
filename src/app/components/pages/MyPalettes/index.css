@@ -46,6 +46,7 @@ p {
 .my-palettes .palette__details {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   padding: 0.5rem 1rem;
   border-top: none;
 }
@@ -62,7 +63,8 @@ p {
   margin: 0.5rem 0rem;
 }
 
-.my-palettes button.reload {
+.my-palettes button.reload,
+.my-palettes button.add-to-figma {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -72,4 +74,8 @@ p {
   width: fit-content;
   cursor: pointer;
   border: 1px solid #ccc;
+}
+
+.my-palettes button.add-to-figma {
+  background-color: #c7b9ff;
 }

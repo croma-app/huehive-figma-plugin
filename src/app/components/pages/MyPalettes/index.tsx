@@ -55,6 +55,19 @@ const MyPalettes = function (props: MyPalettesProps) {
                   </div>
                   <div className="palette__details ">
                     <div> {palette.name}</div>
+                    <button
+                      className="add-to-figma"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        parent.postMessage(
+                          { pluginMessage: { type: 'create-component', colors: palette.colors } },
+                          '*'
+                        );
+                      }}
+                    >
+                      {' '}
+                      Add to figma{' '}
+                    </button>
                   </div>
                 </div>
               );
