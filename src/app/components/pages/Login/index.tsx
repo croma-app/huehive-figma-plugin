@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { API_URL, PAGES } from '../../../utils/contants';
+import './index.css';
 export interface LoginProps {
   setActivePage: React.Dispatch<React.SetStateAction<PAGES>>;
 }
@@ -26,12 +27,16 @@ const Login = function (props: LoginProps) {
           placeholder="Huehive login token"
         />
         <button type="submit">Submit </button>
-        <div>
-          Copy from{' '}
-          <a href="https://huehive.co/users/figma_token" target="_blank">
-            huehive profile page
-          </a>
-          .
+        <div >
+          <p className='login-text'>
+            Copy login token from{' '}
+            <a href="https://huehive.co/users/figma_token" target="_blank">
+              HueHive
+            </a>
+          </p>
+          <p className='sign-up-text'>
+            <a href="https://huehive.co/users/sign_up" target="_blank">Sign up </a><span>if you don't have an account on HueHive</span>
+          </p>
         </div>
       </form>
     </div>
