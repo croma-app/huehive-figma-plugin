@@ -20,7 +20,7 @@ const PaletteDetails = function (props: PaletteDetailsProps) {
       <Header userInfo={userInfo}></Header>
       <div className="palette-details">
         <div className="title-bar">
-          <h3> Palette Details </h3>
+          <h2> Palette Details </h2>
           <button
             className="back"
             onClick={() => {
@@ -38,7 +38,7 @@ const PaletteDetails = function (props: PaletteDetailsProps) {
                 style={{ backgroundColor: color.hex, color: getTextColor(color.hex) }}
                 className="palette__color"
               >
-                <h5 className="color-hex-text">{color.hex}</h5>
+                <p className="color-hex-text">{color.hex.toUpperCase()}</p>
                 <p className="color-name-text"> {color.name}</p>
                 <span
                   onClick={() => {

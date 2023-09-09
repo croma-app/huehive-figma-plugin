@@ -21,9 +21,9 @@ const MyPalettes = function (props: MyPalettesProps) {
     <div className="my-palettes">
       <Header userInfo={userInfo}></Header>
       <div className="title-bar">
-        <h3> My Palettes </h3>
+        <h2> My Palettes </h2>
         <button className="reload" onClick={loadPalettes}>
-          <img src={ReloadSvg} height={20} width={20} />
+          <img src={ReloadSvg} height={15} width={15} />
           Reload
         </button>
       </div>
@@ -47,14 +47,14 @@ const MyPalettes = function (props: MyPalettesProps) {
                           style={{ backgroundColor: color.hex, color: getTextColor(color.hex) }}
                           className="palette__color"
                         >
-                          <h5 className="color-hex-text">{color.hex}</h5>
-                          <p className="color-name-text"> {color.name}</p>
+                          {/* <h5 className="color-hex-text">{color.hex}</h5>
+                          <p className="color-name-text"> {color.name}</p> */}
                         </div>
                       );
                     })}
                   </div>
                   <div className="palette__details ">
-                    <div> {palette.name}</div>
+                    <p className='palette__name'> {palette.name}</p>
                     <button
                       className="add-to-figma"
                       onClick={(e) => {
@@ -65,8 +65,7 @@ const MyPalettes = function (props: MyPalettesProps) {
                         );
                       }}
                     >
-                      {' '}
-                      Add to figma{' '}
+                      Add to figma
                     </button>
                   </div>
                 </div>

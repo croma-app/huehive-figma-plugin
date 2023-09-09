@@ -47,6 +47,7 @@ p {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   padding: 0.5rem 1rem;
   border-top: none;
 }
@@ -77,5 +78,10 @@ p {
 }
 
 .my-palettes button.add-to-figma {
-  background-color: #c7b9ff;
+  background-color: #f5eceb;
+  font-size: 1rem;
+}
+.palette__name {
+  font-size: 1.2rem;
+  font-weight: 500;
 }

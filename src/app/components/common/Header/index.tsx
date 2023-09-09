@@ -22,7 +22,7 @@ const Header = function (props: HeaderProps) {
         <div className="logo">
           <img src={logo} />
         </div>
-        <h2>Huehive</h2>
+        <h2>HueHive</h2>
       </div>
       <div className="kebab">
         <img
@@ -31,7 +31,7 @@ const Header = function (props: HeaderProps) {
           }}
           className="avatar"
           src={userInfo.user.avatar_url}
-          height={60}
+          height={40}
         />
         {toggleDropdown && (
           <ul className="dropdown">

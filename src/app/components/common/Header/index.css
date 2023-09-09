@@ -1,12 +1,13 @@
 .header {
   display: flex;
-  height: 8rem;
+  height: 5rem;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #d9d9d9;
   margin: 0rem;
   padding: 0rem;
+  margin-bottom: .2rem;
 }
 
 .header .header-name {
@@ -19,10 +20,12 @@
 .header .kebab > .avatar {
   border-radius: 100%;
   cursor: pointer;
+  margin: .3rem;
 }
 
 .header .kebab {
   position: relative;
+  margin: .2rem;
 }
 
 .header .kebab .dropdown {
