@@ -42,6 +42,13 @@ const Header = function (props: HeaderProps) {
             >
               Logout
             </li>
+            <li
+              onClick={() => {
+                parent.postMessage({ pluginMessage: { type: 'search' } }, '*');
+              }}
+            >
+              New Search
+            </li>
           </ul>
         )}
       </div>

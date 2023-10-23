@@ -5,6 +5,7 @@ import MyPalettes from './pages/MyPalettes';
 import Login from './pages/Login';
 import PaletteDetails from './pages/PaletteDetails';
 import { Palette, UserInfo } from '../types';
+import Search from './pages/Search';
 
 function App() {
   const [activePage, setActivePage] = useState(PAGES.LOGIN_PAGE);
@@ -28,6 +29,9 @@ function App() {
       if (type === 'logout') {
         setUserInfo(undefined);
         setActivePage(PAGES.LOGIN_PAGE);
+      }
+      if (type === 'search') {
+        setActivePage(PAGES.SEARCH);
       }
     };
   }, []);
@@ -83,6 +87,8 @@ function App() {
           setActivePage={setActivePage}
         />
       );
+    case PAGES.SEARCH:
+      return <Search userInfo={userInfo} setActivePage={setActivePage} />;
     default:
       return <div>Something went worng. No page matches.</div>;
   }

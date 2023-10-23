@@ -25,6 +25,12 @@ figma.ui.onmessage = async (msg) => {
       message: '',
     });
   }
+  if (msg.type === 'search') {
+    figma.ui.postMessage({
+      type: 'search',
+      message: '',
+    });
+  }
   if (msg.type === 'create-component') {
     let initX = 50;
     let squreSize = 100;
