@@ -5,4 +5,18 @@ export enum PAGES {
   SEARCH = 'SEARCH',
 }
 
+export enum PARENT_MESSAGE_TYPE {
+  STORE_USER_INFO = 'LOAD_USER_INFO',
+  LOAD_USER_INFO = 'LOAD_USER_INFO',
+  LOAGOUT = 'LOGOUT',
+  SEARCH = 'SEARCH',
+  CREATE_COMPONENT = 'CREATE_COMPONET',
+}
+
+export enum CHILD_MESSAGE_TYPE {
+  GET_USER_INFO = 'GET_USER_INFO',
+  LOGOUT = 'LOGOUT',
+  SEARCH = 'SEARCH',
+}
+
 export const API_URL = 'https://huehive.co/';

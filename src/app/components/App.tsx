@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import '../styles/ui.css';
-import { API_URL, PAGES } from '../utils/contants';
+import { API_URL, PARENT_MESSAGE_TYPE, PAGES, CHILD_MESSAGE_TYPE } from '../utils/contants';
 import MyPalettes from './pages/MyPalettes';
 import Login from './pages/Login';
 import PaletteDetails from './pages/PaletteDetails';
@@ -16,21 +16,21 @@ function App() {
 
   // trigger load info from local storage
   useEffect(() => {
-    parent.postMessage({ pluginMessage: { type: 'load-user-info' } }, '*');
+    parent.postMessage({ pluginMessage: { type: PARENT_MESSAGE_TYPE.LOAD_USER_INFO } }, '*');
   }, []);
 
   useEffect(() => {
     // This is how we read messages sent from the plugin controller
     window.onmessage = (event) => {
       const { type, message } = event.data.pluginMessage;
-      if (type === 'get-user-info') {
+      if (type === CHILD_MESSAGE_TYPE.GET_USER_INFO) {
         setUserInfo(JSON.parse(message));
       }
-      if (type === 'logout') {
+      if (type === CHILD_MESSAGE_TYPE.LOGOUT) {
         setUserInfo(undefined);
         setActivePage(PAGES.LOGIN_PAGE);
       }
-      if (type === 'search') {
+      if (type === CHILD_MESSAGE_TYPE.SEARCH) {
         setActivePage(PAGES.SEARCH);
       }
     };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { PAGES } from '../../../utils/contants';
+import { PARENT_MESSAGE_TYPE, PAGES } from '../../../utils/contants';
 import { Palette, UserInfo } from '../../../types';
 import Header from '../../common/Header';
 import './index.css';
@@ -54,13 +54,13 @@ const MyPalettes = function (props: MyPalettesProps) {
                     })}
                   </div>
                   <div className="palette__details ">
-                    <p className='palette__name'> {palette.name}</p>
+                    <p className="palette__name"> {palette.name}</p>
                     <button
                       className="add-to-figma"
                       onClick={(e) => {
                         e.stopPropagation();
                         parent.postMessage(
-                          { pluginMessage: { type: 'create-component', colors: palette.colors } },
+                          { pluginMessage: { type: PARENT_MESSAGE_TYPE.CREATE_COMPONENT, colors: palette.colors } },
                           '*'
                         );
                       }}
