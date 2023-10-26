@@ -2,11 +2,12 @@ import { CHILD_MESSAGE_TYPE, PARENT_MESSAGE_TYPE } from '../app/utils/contants';
 import { hexToRgb } from '../app/utils/helpers';
 
 figma.showUI(__html__, { width: 300, height: 500 });
-
 const LOGIN_TOKEN_KEY = 'LOGIN_TOKEN_KEY';
+
 figma.ui.onmessage = async (msg) => {
   if (msg.type === PARENT_MESSAGE_TYPE.STORE_USER_INFO) {
     figma?.clientStorage.setAsync(LOGIN_TOKEN_KEY, msg.userInfo);
+
     figma.ui.postMessage({
       type: CHILD_MESSAGE_TYPE.GET_USER_INFO,
       message: msg.userInfo,
@@ -14,12 +15,13 @@ figma.ui.onmessage = async (msg) => {
   }
   if (msg.type === PARENT_MESSAGE_TYPE.LOAD_USER_INFO) {
     const userInfo = await figma?.clientStorage.getAsync(LOGIN_TOKEN_KEY);
+
     figma.ui.postMessage({
       type: CHILD_MESSAGE_TYPE.GET_USER_INFO,
       message: userInfo,
     });
   }
-  if (msg.type === PARENT_MESSAGE_TYPE.LOAGOUT) {
+  if (msg.type === PARENT_MESSAGE_TYPE.LOGOUT) {
     await figma.clientStorage.deleteAsync(LOGIN_TOKEN_KEY);
     figma.ui.postMessage({
       type: CHILD_MESSAGE_TYPE.LOGOUT,

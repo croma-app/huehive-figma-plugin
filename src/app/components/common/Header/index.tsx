@@ -38,7 +38,7 @@ const Header = function (props: HeaderProps) {
           <ul className="dropdown">
             <li
               onClick={() => {
-                parent.postMessage({ pluginMessage: { type: PARENT_MESSAGE_TYPE.LOAGOUT } }, '*');
+                parent.postMessage({ pluginMessage: { type: PARENT_MESSAGE_TYPE.LOGOUT } }, '*');
               }}
             >
               Logout
