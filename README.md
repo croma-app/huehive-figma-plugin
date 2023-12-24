@@ -1,6 +1,20 @@
 # HueHive Figma Plugin 
 
-![62862431-71537f00-bd0e-11e9-85db-d97c0fb729a4](https://user-images.githubusercontent.com/16322616/62862692-46b5f600-bd0f-11e9-93b0-75955d1de8f3.png)
+```mermaid
+flowchart TB
+    A[Huehive Figma Plugin] -->|User signs in with token| B[Huehive Login]
+    B --> C{Does user have token?}
+    C -->|Yes| D[Access Huehive]
+    C -->|No| E[Go to Huehive to get token]
+    E --> B
+    D --> F[Generate Palette using ChatGPT]
+    F --> G[Save Favorite Palettes]
+    G -->|Access saved palettes| H[Use palettes in Figma plugin]
+    H --> I[Add palettes to Figma]
+    I --> J[Use in designs]
+```
+[Generated on Huehive](https://huehive.co/tools/diagrams)
+
 
 This template contains the react example as shown on [Figma Docs](https://www.figma.com/plugin-docs/intro/), with some structural changes and extra tooling.
 
@@ -28,4 +42,3 @@ This repo is using:
 
 Publishing plugin 
 - https://help.figma.com/hc/en-us/articles/360042293394-Publish-plugins-to-the-Figma-Community#Publish_your_plugin
-- 
