@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { UserInfo } from '../../../types';
 import './index.css';
 import logo from '../../../assets/logo.svg';
+import { PARENT_MESSAGE_TYPE } from '../../../utils/contants';
 
 interface HeaderProps {
   userInfo: UserInfo;
@@ -37,10 +38,17 @@ const Header = function (props: HeaderProps) {
           <ul className="dropdown">
             <li
               onClick={() => {
-                parent.postMessage({ pluginMessage: { type: 'logout' } }, '*');
+                parent.postMessage({ pluginMessage: { type: PARENT_MESSAGE_TYPE.LOGOUT } }, '*');
               }}
             >
               Logout
+            </li>
+            <li
+              onClick={() => {
+                parent.postMessage({ pluginMessage: { type: PARENT_MESSAGE_TYPE.SEARCH } }, '*');
+              }}
+            >
+              New Search
             </li>
           </ul>
         )}

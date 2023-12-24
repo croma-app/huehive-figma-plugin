@@ -18,8 +18,8 @@ button {
   border: none;
   background-color: #f1544d;
   color: #ffffff;
-  width: 200px;
-  height: 30px;
+  width: 20rem;
+  min-height: 2rem;
   border-radius: 5px;
 }
 
