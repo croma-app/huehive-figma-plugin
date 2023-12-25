@@ -54,7 +54,7 @@ const MyPalettes = function (props: MyPalettesProps) {
                     })}
                   </div>
                   <div className="palette__details ">
-                    <p className='palette__name'> {palette.name}</p>
+                    <p className="palette__name"> {palette.name}</p>
                     <button
                       className="add-to-figma"
                       onClick={(e) => {
