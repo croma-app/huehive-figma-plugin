@@ -1,9 +1,85 @@
-.login-text {
-    font-size: 1.6rem;
-    margin: .2rem;
+.login-container {
+  position: relative;
+  height: 100%;
+  background-color: #eee;
+
+  & .background {
+    position: absolute;
+    width: 100%;
+  }
 }
-.sign-up-text {
-    font-size: 1rem;
-    margin: .2rem;
-    padding-top: .5rem;
+
+.login-outer {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 2em;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.login {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 3fr 12fr 6fr;
+
+  height: 100%;
+
+  padding: 2em;
+
+  background-color: white;
+  border-radius: 1em;
+
+  text-align: center;
+
+  & h1 {
+    margin-bottom: 0;
+    font-size: 3rem;
+    align-self: end;
+  }
+
+  & h2 {
+    margin-top: 0.5em;
+
+    font-size: 2rem;
+    font-weight: normal;
+    opacity: 0.8;
+  }
+
+  & .intro {
+    align-self: end;
+    font-size: 1.4rem;
+    font-weight: lighter;
+    opacity: 0.9;
+  }
+
+  & button {
+    align-self: end;
+
+    height: 3em;
+    width: 100%;
+
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+}
+
+.login-loading {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: center;
+
+  height: 100%;
+
+  background-color: white;
+  border-radius: 1em;
+
+  & p {
+    font-size: 2rem;
+  }
+
+  & a {
+    font-size: 1.5rem;
+  }
 }

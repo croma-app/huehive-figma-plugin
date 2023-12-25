@@ -1,17 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
   font: 10px sans-serif;
 }
 body {
   box-sizing: border-box;
   margin: 0px;
-}
-
-.login > form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
 }
 
 button {
@@ -26,6 +22,10 @@ button {
 input {
   width: 200px;
   height: 30px;
+}
+
+#react-page {
+  height: 100%;
 }
 
 .text-white {
