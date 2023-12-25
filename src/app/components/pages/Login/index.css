@@ -21,7 +21,7 @@
 .login {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 2fr 3fr 12fr 6fr;
+  grid-template-rows: 2fr 3fr 8fr 8fr;
 
   height: 100%;
 
@@ -52,15 +52,24 @@
     font-weight: lighter;
     opacity: 0.9;
   }
+}
+
+.auth-buttons {
+  align-self: end;
 
   & button {
-    align-self: end;
-
     height: 3em;
     width: 100%;
 
     font-size: 1.5rem;
     font-weight: bold;
+  }
+
+  & .signup-button {
+    margin-top: 0.5em;
+
+    background: #eee;
+    color: #777;
   }
 }
 
@@ -80,6 +89,10 @@
   }
 
   & a {
+    font-size: 1.5rem;
+  }
+
+  & .error-message {
     font-size: 1.5rem;
   }
 }
