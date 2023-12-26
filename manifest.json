@@ -4,5 +4,18 @@
   "api": "1.0.0",
   "main": "dist/code.js",
   "ui": "dist/ui.html",
-  "editorType": ["figma", "figjam"]
+  "editorType": [
+    "figma",
+    "figjam"
+  ],
+  "networkAccess": {
+    "allowedDomains": [
+      "https://huehive.co",
+      "https://lh3.googleusercontent.com/"
+    ],
+    "devAllowedDomains": [
+      "http://localhost:3000",
+      "https://lh3.googleusercontent.com/"
+    ]
+  }
 }
