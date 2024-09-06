@@ -17,6 +17,7 @@ export interface MyPalettesProps {
 
 const MyPalettes = function (props: MyPalettesProps) {
   const { palettes, userInfo, setSelectedPaletteId, setActivePage, loadPalettes, loadingPalettes } = props;
+
   return (
     <div className="my-palettes">
       <Header userInfo={userInfo}></Header>
@@ -40,10 +41,11 @@ const MyPalettes = function (props: MyPalettesProps) {
                     setActivePage(PAGES.PALETTE_DETAILS);
                   }}
                 >
-                  <div className="palette__colors ">
+                  <div className="palette__colors">
                     {palette.colors.map((color) => {
                       return (
                         <div
+                          key={color.hex} // Added key for each color
                           style={{ backgroundColor: color.hex, color: getTextColor(color.hex) }}
                           className="palette__color"
                         >
@@ -53,7 +55,7 @@ const MyPalettes = function (props: MyPalettesProps) {
                       );
                     })}
                   </div>
-                  <div className="palette__details ">
+                  <div className="palette__details">
                     <p className="palette__name"> {palette.name}</p>
                     <button
                       className="add-to-figma"
@@ -65,15 +67,22 @@ const MyPalettes = function (props: MyPalettesProps) {
                         );
                       }}
                     >
-                      Add to figma
+                      Add to Figma
                     </button>
                   </div>
                 </div>
               );
             })}
-        <a href="https://huehive.co/" target="_blank" className="generate-button">
-          {' '}
-          Generate new palette{' '}
+        <a href="https://huehive.co/" target="_blank" className="floating-action-button">+</a>
+      </div>
+      <div className="download-section">
+        <a href="https://play.google.com/store/apps/details?id=app.croma" target="_blank" className="download-button">
+    
+          Download Android App to generate palettes
+        </a>
+        
+        <a href="https://huehive.co" target="_blank" className="download-button">
+        Generate palettes on huehive.co
         </a>
       </div>
     </div>

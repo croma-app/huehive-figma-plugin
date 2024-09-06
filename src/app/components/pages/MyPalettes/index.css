@@ -77,11 +77,63 @@ p {
   border: 1px solid #ccc;
 }
 
-.my-palettes button.add-to-figma {
-  background-color: #f5eceb;
-  font-size: 1rem;
-}
 .palette__name {
   font-size: 1.2rem;
   font-weight: 500;
+}
+
+.floating-action-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #f1544d;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 16px;  
+  line-height: 0; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.floating-action-button:hover {
+  background-color: #f03c32;
+}
+
+.download-section {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.download-button {
+  display: flex;
+  align-items: center;
+  background-color: #c2dcce;
+  color: rgb(3, 3, 3);
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  margin: 1rem;
+}
+
+.download-button:hover {
+  background-color: #35c076;
+}
+
+.android-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5rem;
 }
