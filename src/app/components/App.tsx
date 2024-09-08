@@ -33,14 +33,20 @@ function App() {
   }, []);
 
   const loadPalettes = useCallback(async () => {
-    try {
-      setLoadingPalettes(true);
-      const res = await fetch(API_URL + 'color_palettes.json');
-      const palettes = await res.json();
-      setPalettes(palettes as unknown as Palette[]);
-    } catch (error) {}
+    setLoadingPalettes(true);
+    const res = await fetch(API_URL + 'color_palettes.json', {
+      // credentials: 'include', // Ensures cookies are sent with the request
+      headers: {
+        'Content-Type': 'application/json',
+        "X-User-Token": userInfo.userToken,
+        "X-User-Email": userInfo.user.email
+      },
+    });
+    const palettes = await res.json();
+    setPalettes(palettes as unknown as Palette[]);
+    
     setLoadingPalettes(false);
-  }, []);
+  }, [userInfo]);
 
   useEffect(() => {
     (async () => {
